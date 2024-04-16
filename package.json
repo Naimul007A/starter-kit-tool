@@ -1,0 +1,36 @@
+{
+  "name": "starter-kit-tool",
+  "version": "1.0.0",
+  "description": "A quick command-line utility for NodeJS that helps quickly spin up new projects.",
+  "type": "module",
+  "main": "index.js",
+  "displayName": "starter-kit-tool",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "kit": "main.js"
+  },
+  "keywords": [
+    "starter",
+    "kit",
+    "starterkit",
+    "easy",
+    "express",
+    "sailsjs",
+    "bower",
+    "frontend",
+    "backend",
+    "fullstack",
+    "starter-kit",
+    "laravel"
+  ],
+  "author": "Naimul islam <mdnaimul2090@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "colors": "^1.4.0",
+    "inquirer": "^9.2.18",
+    "remove": "^0.1.5"
+  }
+}
