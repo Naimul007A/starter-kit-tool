@@ -31,6 +31,6 @@ then press enter and wait a minutes.Now RUN your project.
 - [laravel-bootstrap](https://github.com/Naimul007A/laravel-bootstrap.git)
 - [node-ts](https://github.com/Naimul007A/node-ts.git)
 
-Note: If you want to contribute in this project.please Read [CONTRIBUTING.md]()
+Note: If you want to contribute in this project.please Read [CONTRIBUTING.md](https://github.com/Naimul007A/starter-kit-tool/blob/main/CONTRIBUTING.md)
 
 ## Thank you so much for Using our package
