@@ -15,6 +15,16 @@ or
 ```
 yarn add global starter-kit-tool
 ```
+or
+
+```
+npx starter-kit-tool
+```
+or
+
+```
+pnpm dlx starter-kit-tool
+```
 
 ## Basic Usage
 
