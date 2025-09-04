@@ -4,13 +4,46 @@ import inquirer from 'inquirer';
 import fs from 'fs';
 import path from 'path';
 import clone from "./helpers/clone.js"
+
+function showHelp() {
+    console.log(Chalk.bgRed.white('starter-kit@1.1.1' + ' ' + Chalk.white('By Naimul Islam')));
+    console.log('');
+    console.log(Chalk.cyan('A quick command-line utility for NodeJS that helps quickly spin up new projects.'));
+    console.log('');
+    console.log(Chalk.yellow('Usage:'));
+    console.log('  kit [folder-name]              Create a new project in the specified folder');
+    console.log('  kit                            Create a new project in the current directory');
+    console.log('');
+    console.log(Chalk.yellow('Options:'));
+    console.log('  -h, -H, --help                Show this help message');
+    console.log('');
+    console.log(Chalk.yellow('Available project types:'));
+    console.log('  • laravel-vue                  Laravel with Vue.js frontend');
+    console.log('  • laravel-bootstrap            Laravel with Bootstrap');
+    console.log('  • python-flask                Python Flask application');
+    console.log('  • node-ts                      Node.js with TypeScript');
+    console.log('');
+    console.log(Chalk.yellow('Examples:'));
+    console.log('  kit my-project                 Create a new project in "./my-project" folder');
+    console.log('  kit                            Create a new project in current directory');
+    console.log('');
+    console.log(Chalk.gray('For more information, visit: https://github.com/Naimul007A/starter-kit-tool'));
+}
+
+// Check for help flags
+const args = process.argv.slice(2);
+if (args.includes('--help') || args.includes('-h') || args.includes('-H') || args.includes('help')) {
+    showHelp();
+    process.exit(0);
+}
+
 async function askQuestions() {
     console.log(
         Chalk.bgRed.white('starter-kit@1.1.1' + ' ' + Chalk.white('By Naimul Islam'),)
     )
 
-    // Get folder name from command line arguments
-    const folderName = process.argv[2];
+    // Get folder name from command line arguments (excluding help flags)
+    const folderName = args.find(arg => !arg.startsWith('-') && arg !== 'help');
     let targetPath = process.cwd();
 
     if (folderName) {
