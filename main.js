@@ -32,7 +32,7 @@ async function emptyDirectory(dirPath) {
 }
 
 function showHelp() {
-    console.log(Chalk.bgRed.white('starter-kit@1.1.1' + ' ' + Chalk.white('By Naimul Islam')));
+    console.log(Chalk.bgRed.white('starter-kit@1.2.1' + ' ' + Chalk.white('By Naimul Islam')));
     console.log('');
     console.log(Chalk.cyan('A quick command-line utility for NodeJS that helps quickly spin up new projects.'));
     console.log('');
@@ -65,7 +65,7 @@ if (args.includes('--help') || args.includes('-h') || args.includes('-H') || arg
 
 async function askQuestions() {
     console.log(
-        Chalk.bgRed.white('starter-kit@1.1.1' + ' ' + Chalk.white('By Naimul Islam'),)
+        Chalk.bgRed.white('starter-kit@1.2.1' + ' ' + Chalk.white('By Naimul Islam'),)
     )
 
     // Get folder name from command line arguments (excluding help flags)
