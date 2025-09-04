@@ -1,7 +1,8 @@
 import fs from 'fs';
+import path from 'path';
 
-function hasComposerJson() {
-    const filePath = 'composer.json';
+function hasComposerJson(targetPath = process.cwd()) {
+    const filePath = path.join(targetPath, 'composer.json');
     try {
         // Check if the file exists
         fs.accessSync(filePath, fs.constants.F_OK);
