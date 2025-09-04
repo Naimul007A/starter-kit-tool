@@ -3,7 +3,33 @@ import Chalk from 'chalk';
 import inquirer from 'inquirer';
 import fs from 'fs';
 import path from 'path';
+import { exec } from 'child_process';
+import { promisify } from 'util';
 import clone from "./helpers/clone.js"
+
+const execAsync = promisify(exec);
+
+function isDirectoryEmpty(dirPath) {
+    try {
+        const files = fs.readdirSync(dirPath);
+        return files.length === 0;
+    } catch (error) {
+        return true; // If we can't read it, consider it empty
+    }
+}
+
+async function emptyDirectory(dirPath) {
+    try {
+        // Change to the directory and remove all files and hidden files
+        const command = `cd "${dirPath}" && rm -rf * && rm -rf .*`;
+        await execAsync(command);
+        console.log(Chalk.green(`Directory "${dirPath}" has been emptied successfully!`));
+        return true;
+    } catch (error) {
+        console.error(Chalk.red(`Error emptying directory: ${error.message}`));
+        return false;
+    }
+}
 
 function showHelp() {
     console.log(Chalk.bgRed.white('starter-kit@1.1.1' + ' ' + Chalk.white('By Naimul Islam')));
@@ -61,6 +87,68 @@ async function askQuestions() {
             }
         } else {
             console.log(Chalk.blue(`Using existing folder: ${folderName}`));
+
+            // Check if the folder is not empty
+            if (!isDirectoryEmpty(targetPath)) {
+                console.log(Chalk.yellow(`Warning: Folder "${folderName}" is not empty!`));
+
+                try {
+                    const { shouldEmpty } = await inquirer.prompt([
+                        {
+                            type: "confirm",
+                            name: "shouldEmpty",
+                            message: `The folder "${folderName}" is not empty. Do you want to empty it before proceeding?`,
+                            default: false
+                        }
+                    ]);
+
+                    if (shouldEmpty) {
+                        console.log(Chalk.yellow(`Emptying folder "${folderName}"...`));
+                        const success = await emptyDirectory(targetPath);
+                        if (!success) {
+                            console.log(Chalk.red('Failed to empty the directory. Aborting...'));
+                            return;
+                        }
+                    } else {
+                        console.log(Chalk.red('Operation cancelled by user.'));
+                        return;
+                    }
+                } catch (error) {
+                    console.error(Chalk.red(`Error: ${error.message}`));
+                    return;
+                }
+            }
+        }
+    } else {
+        // If no folder name provided, check if current directory is empty
+        if (!isDirectoryEmpty(targetPath)) {
+            console.log(Chalk.yellow(`Warning: Current directory is not empty!`));
+
+            try {
+                const { shouldEmpty } = await inquirer.prompt([
+                    {
+                        type: "confirm",
+                        name: "shouldEmpty",
+                        message: `The current directory is not empty. Do you want to empty it before proceeding?`,
+                        default: false
+                    }
+                ]);
+
+                if (shouldEmpty) {
+                    console.log(Chalk.yellow(`Emptying current directory...`));
+                    const success = await emptyDirectory(targetPath);
+                    if (!success) {
+                        console.log(Chalk.red('Failed to empty the directory. Aborting...'));
+                        return;
+                    }
+                } else {
+                    console.log(Chalk.red('Operation cancelled by user.'));
+                    return;
+                }
+            } catch (error) {
+                console.error(Chalk.red(`Error: ${error.message}`));
+                return;
+            }
         }
     }
 
