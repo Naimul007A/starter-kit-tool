@@ -28,8 +28,10 @@ then press enter and wait a minutes.Now RUN your project.
 
 ## Starter Kits
 
+- [laravel-vue](https://github.com/Naimul007A/laravel-vue.git)
 - [laravel-bootstrap](https://github.com/Naimul007A/laravel-bootstrap.git)
 - [node-ts](https://github.com/Naimul007A/node-ts.git)
+- [python-flask](https://github.com/Naimul007A/python-flask-starterkit.git)
 
 Note: If you want to contribute in this project.please Read [CONTRIBUTING.md](https://github.com/Naimul007A/starter-kit-tool/blob/main/CONTRIBUTING.md)
 

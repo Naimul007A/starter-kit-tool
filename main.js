@@ -12,12 +12,18 @@ async function askQuestions() {
                 type: "list",
                 name: "projectLink",
                 message: 'What kind of project do you want to create?',
-                choices: ["laravel-bootstrap", "node-ts"],
+                choices: ["laravel-vue", "node-ts", "python-flask","laravel-bootstrap"],
             }
         ])
         switch (projectLink) {
+            case 'laravel-vue':
+                clone("laravel-vue")
+                break;
             case 'laravel-bootstrap':
                 clone("laravel-bootstrap")
+                break;
+            case 'python-flask':
+                clone("python-flask")
                 break;
             case 'laravel-tailwind':
                 clone("laravel-tailwind")
