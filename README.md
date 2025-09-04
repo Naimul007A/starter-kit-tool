@@ -1,48 +1,80 @@
-# StarterKit
 
-A command-line utility for Node that gives quick access to starter-kits that
-help you spin up a project easily. Designed for teams that desire consistency
-but require flexibility from project to project.
+# StarterKit Tool
 
-## Install
+>A command-line utility for Node.js to quickly spin up new projects from starter kits. Designed for teams who want consistency and flexibility.
 
-```
-npm install starter-kit-tool -g
-```
+---
 
-or
+## 🚀 Features
 
-```
-yarn add global starter-kit-tool
-```
-or
+- Fast project bootstrapping with a single command
+- Supports multiple starter kits (Laravel, Node.js, Python, etc.)
+- Cleans up directories and installs dependencies automatically
+- Interactive CLI for easy selection
 
-```
+---
+
+## 📦 Installation
+
+Install globally using your favorite package manager:
+
+```sh
+npm install -g starter-kit-tool
+# or
+yarn global add starter-kit-tool
+# or
 npx starter-kit-tool
-```
-or
-
-```
+# or
 pnpm dlx starter-kit-tool
 ```
 
-## Basic Usage
+---
 
+## 🛠️ Usage
+
+Create a new project in a folder:
+
+```sh
+kit my-project
 ```
-mkdir your_directory
-cd your_directory
+
+Or in the current directory:
+
+```sh
 kit
 ```
 
-then press enter and wait a minutes.Now RUN your project.
+Follow the prompts to select your starter kit. The tool will clone the template, install dependencies, and set up your environment.
 
-## Starter Kits
+---
 
-- [laravel-vue](https://github.com/Naimul007A/laravel-vue.git)
-- [laravel-bootstrap](https://github.com/Naimul007A/laravel-bootstrap.git)
-- [node-ts](https://github.com/Naimul007A/node-ts.git)
-- [python-flask](https://github.com/Naimul007A/python-flask-starterkit.git)
+## 🎒 Available Starter Kits
 
-Note: If you want to contribute in this project.please Read [CONTRIBUTING.md](https://github.com/Naimul007A/starter-kit-tool/blob/main/CONTRIBUTING.md)
+- [Laravel + Vue](https://github.com/Naimul007A/laravel-vue.git)
+- [Laravel + Bootstrap](https://github.com/Naimul007A/laravel-bootstrap.git)
+- [Node.js + TypeScript](https://github.com/Naimul007A/node-ts.git)
+- [Python Flask](https://github.com/Naimul007A/python-flask-starterkit.git)
 
-## Thank you so much for Using our package
+---
+
+## 📋 CLI Options
+
+```
+kit [folder-name]      Create a new project in the specified folder
+kit                   Create a new project in the current directory
+
+Options:
+	-h, -H, --help      Show help message
+```
+
+---
+
+## 🧑‍💻 Contributing
+
+Want to contribute? Please read [CONTRIBUTING.md](CONTRIBUTING.md) first.
+
+---
+
+## 🙏 Thanks for using StarterKit Tool!
+
+For more info, visit the [GitHub repo](https://github.com/Naimul007A/starter-kit-tool).
